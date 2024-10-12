@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'principal',
     'usuarios',
-    'django.contrib.humanize'
+    'django.contrib.humanize',
+    'bootstrap4',
+    'widget_tweaks',
+    'gestion_ganado',
 ]
 
 MIDDLEWARE = [
@@ -72,14 +75,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Administracion_de_Ganado.wsgi.application'
 
+AUTH_USER_MODEL = 'usuarios.Cuentas'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'pesaje_inteligente',
+        'USER': "root",
+        'PASSWORD' : '123',
+        'PORT' : '3306',
+        'HOST': '127.0.0.1'
     }
 }
 
@@ -131,3 +141,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 LOGIN_URL = 'login'
+
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'tierradegrandes2022@gmail.com'
+EMAIL_HOST_PASSWORD = 'vxubrqpbxwfukygi'
+EMAIL_USE_TLS = "true"
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

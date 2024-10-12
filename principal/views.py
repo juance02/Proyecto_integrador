@@ -5,9 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 def Inicio(request):
-    #product = producto.objects.all()
-    #categorias=Categorias.objects.filter(activo=True)
-    #context = { 'product': product,'categorias':categorias}
+   
     return render(request, "index.html")
 
 

@@ -1,0 +1,12 @@
+{% autoescape off %}
+
+Hola {{ user.nombres }},
+
+por favor activa tu cuenta dandole click al siguinte link:
+
+http://{{domain}}{% url 'activate' uidb64=uid token=token  %}
+
+Te agradecemos por el registro en Pesaje inteligente para Ganado 
+Disfrutaras de muchos beneficios.
+
+{% endautoescape %}
