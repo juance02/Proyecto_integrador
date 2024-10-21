@@ -6,12 +6,12 @@ $(function () {
   var chart = {
     series: [
       {
-        name: "New Users",
-        data: [5, 1, 17, 6, 15, 9, 6],
+        name: "Reses",
+        data: ['Vaca 1', 'Vaca 2', 'Vaca 3', 'Vaca 4', 'Vaca 5'],
       },
       {
-        name: "Users",
-        data: [7, 11, 4, 16, 10, 14, 10],
+        name: "Kilos",
+        data: [650, 700, 720, 680, 690],
       },
     ],
     chart: {
@@ -58,7 +58,7 @@ $(function () {
       axisTicks: {
         show: false,
       },
-      categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      ///categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
     },
     yaxis: {
       tickAmount: 4,
