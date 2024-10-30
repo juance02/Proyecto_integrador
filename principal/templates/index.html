@@ -47,7 +47,7 @@
               <span class="hide-menu">Gestión</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+              <a class="sidebar-link" href="{% url 'agregar_res' %}" aria-expanded="false">
                 <span>
                   <iconify-icon icon="solar:layers-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
                 </span>
@@ -71,7 +71,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="{% url 'agregar_res' %}" aria-expanded="false">
+              <a class="sidebar-link" href="" aria-expanded="false">
                 <span>
                   <iconify-icon icon="solar:file-text-bold-duotone" class="fs-6"></iconify-icon>
                 </span>
@@ -184,7 +184,8 @@
       <div class="container-fluid">
         <div class="row">
             <div class="col-lg-8">
-                <img src="{% static 'grafica_vacas.png' %}" height="500px" width="750px" ;>
+              
+              <iframe src="http://127.0.0.1:8050" style="width: 100%; height: 600px;"></iframe>
             
             </div>
         <div class="col-lg-4">

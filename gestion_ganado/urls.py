@@ -13,6 +13,7 @@ urlpatterns = [
     
     #path('Registrarse/', views.register, name= 'registrarse'),
     path('agregar_res/', agregar_res, name= 'agregar_res'),
+    path('dashboard/', dashboard_view, name= 'dashboard'),
     
     
 ]

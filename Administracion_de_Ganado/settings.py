@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'widget_tweaks',
     'gestion_ganado',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [

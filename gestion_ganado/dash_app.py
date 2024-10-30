@@ -1,10 +1,12 @@
+# myapp/dash_app.py
+
 import dash
 from dash import dcc, html
 import pandas as pd
 from dash.dependencies import Input, Output
 import plotly.express as px
 
-# Inicializando la app
+# Inicializando la app de Dash
 app = dash.Dash(__name__)
 
 # Definición de los datos de vacas
@@ -33,21 +35,17 @@ df['Estado de Salud'] = df['Peso (kg)'].apply(evaluar_salud)
 # Layout del dashboard
 app.layout = html.Div([
     html.H1('Estadísticas de Vacas'),
-
     dcc.Dropdown(
         id='vaca-dropdown',
         options=[{'label': vaca, 'value': vaca} for vaca in df['Vaca']],
         value='Vaca 1'  # Valor por defecto
     ),
-
     html.Div(id='vaca-info'),
-
     dcc.Graph(
         id='grafico-peso-barras',
         figure=px.bar(df, x='Vaca', y='Peso (kg)', title='Peso de Vacas',
                       color='Peso (kg)', color_continuous_scale=px.colors.sequential.Viridis)
     ),
-
     dcc.Graph(
         id='grafico-salud-pastel',
         figure=px.pie(df, values='Peso (kg)', names='Estado de Salud', 
@@ -65,6 +63,6 @@ def update_output(selected_vaca):
     vaca_data = df[df['Vaca'] == selected_vaca].iloc[0]
     return f"Peso: {vaca_data['Peso (kg)']} kg, Estado de Salud: {vaca_data['Estado de Salud']}"
 
-# Ejecutar la app
-if __name__ == '__main__':
-    app.run_server(debug=True)
+# Mantener la aplicación de Dash
+def run_dash():
+    app.run_server(debug=True, use_reloader=True)
