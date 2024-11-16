@@ -23,4 +23,5 @@ urlpatterns = [
     path('',include('principal.urls')),
     path('',include('usuarios.urls')),
     path('',include('gestion_ganado.urls')),
+    path('django_plotly_dash/', include('django_plotly_dash.urls')),
 ]

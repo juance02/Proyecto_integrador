@@ -1,5 +1,5 @@
 from unicodedata import name
-from django.urls import path
+from django.urls import path,include
 from . import views
 #from static import contact, contactar 
 
@@ -13,7 +13,9 @@ urlpatterns = [
     
     #path('Registrarse/', views.register, name= 'registrarse'),
     path('agregar_res/', agregar_res, name= 'agregar_res'),
+    path('ver_reses/', ver_reses, name= 'ver_reses'),
     path('dashboard/', dashboard_view, name= 'dashboard'),
+  
     
     
 ]

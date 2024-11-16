@@ -5,4 +5,4 @@ class ResesForm(forms.ModelForm):
 
     class  Meta:
             model = Reses
-            fields = [ 'numero_registro','edad', 'peso', 'raza','genero']
+            fields = [ 'nombre','numero_registro','edad', 'peso', 'raza','genero']

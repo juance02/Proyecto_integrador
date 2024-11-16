@@ -17,17 +17,14 @@ from dash.dependencies import Input, Output
 import plotly.express as px
 from gestion_ganado.forms import *
 
-# Create your views here.
-
-
-
-# myapp/views.py
-
 from django.shortcuts import render
 from django.http import HttpResponse
 from threading import Thread
-from gestion_ganado.dash_app import run_dash
+#from gestion_ganado.dash_app import run_dash
+from django_plotly_dash import DjangoDash
 
+app = DjangoDash('EstadisticasVacas')
+"""
 def dashboard_view(request):
     # Iniciar el servidor Dash en un hilo
     thread = Thread(target=run_dash)
@@ -35,9 +32,13 @@ def dashboard_view(request):
     thread.start()
     
     return HttpResponse("El dashboard de Dash se está ejecutando. Visítalo en http://127.0.0.1:8050")
+"""
 
-def dashboard(request):
-    return render(request, 'index.html')
+
+
+def dashboard_view(request):
+    
+    return render(request, 'dashboard.html')
 
 
 
@@ -57,12 +58,12 @@ def agregar_res(request):
 
     return render(request, 'gestion_ganado/registar_res.html', {'formulario' : formulario})
 @login_required
-def gestion_reses(request):
+def ver_reses(request):
     reses = Reses.objects.all()
     data ={
         'reses': reses
     }
-    return render(request, 'producto/listar.html', data)
+    return render(request, 'gestion_ganado/ver_res.html', data)
 
 def modificar_producto(request,pk):
     
