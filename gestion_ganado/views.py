@@ -20,11 +20,11 @@ from gestion_ganado.forms import *
 from django.shortcuts import render
 from django.http import HttpResponse
 from threading import Thread
-#from gestion_ganado.dash_app import run_dash
-from django_plotly_dash import DjangoDash
+from gestion_ganado.dash_app import run_dash
+#from django_plotly_dash import DjangoDash
 
-app = DjangoDash('EstadisticasVacas')
-"""
+
+
 def dashboard_view(request):
     # Iniciar el servidor Dash en un hilo
     thread = Thread(target=run_dash)
@@ -32,16 +32,10 @@ def dashboard_view(request):
     thread.start()
     
     return HttpResponse("El dashboard de Dash se está ejecutando. Visítalo en http://127.0.0.1:8050")
-"""
 
-
-
-def dashboard_view(request):
+#def dashboard_view(request):
     
-    return render(request, 'dashboard.html')
-
-
-
+#    return render(request, 'dashboard.html')
 
 def agregar_res(request):
     

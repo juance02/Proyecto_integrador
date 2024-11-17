@@ -8,8 +8,6 @@ import plotly.express as px
 from gestion_ganado.models import *
 from django_plotly_dash import DjangoDash
 
-"""
-
 # Inicializando la app de Dash
 app = dash.Dash(__name__)
 
@@ -58,7 +56,33 @@ app.layout = html.Div([
         )
     )
 ])
-
+@app.callback(
+    [Output('grafico-peso-barras', 'figure'),
+     Output('grafico-salud-pastel', 'figure')],
+    [Input('intervalo-actualizacion', 'n_intervals')]
+)
+def actualizar_graficos(n_intervals):
+    data = obtener_datos()
+    # Actualiza el gráfico de barras
+    fig_barras = px.bar(
+        data_frame=data,
+        x='Reses',
+        y='Peso (kg)',
+        title='Peso de Vacas',
+        color='Peso (kg)',
+        color_continuous_scale=px.colors.sequential.Viridis
+    )
+    
+    # Actualiza el gráfico de pastel
+    fig_pastel = px.pie(
+        data_frame=data,
+        values='Peso (kg)',
+        names='Estado de Salud',
+        title='Distribución de Peso por Estado de Salud',
+        color_discrete_sequence=px.colors.qualitative.Set2
+    )
+    
+    return fig_barras, fig_pastel
 # Callback para actualizar la información
 @app.callback(
     Output('vaca-info', 'children'),
@@ -131,3 +155,4 @@ app.layout = html.Div([
 def update_output(selected_vaca):
     vaca = Reses.objects.get(nombre=selected_vaca)
     return f"Peso: {vaca.peso} kg, Estado de Salud: {vaca.estado_salud()}"
+"""
